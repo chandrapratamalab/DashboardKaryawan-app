@@ -2,7 +2,7 @@
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
-use App\Http\Controllers\UserController;
+use App\Http\Controllers\HRDController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\EmployeeController;
 use App\Http\Controllers\ShiftController;
@@ -69,12 +69,12 @@ Route::middleware(['auth'])->group(function () {
             return view('karyawan.dashboard');
         })->name('dashboard');
     });
-        
+
     // Absensi
     Route::get('/absensi', [AbsensiController::class, 'index'])->name('absensi');
     Route::post('/absensi/checkin', [AbsensiController::class, 'checkin'])->name('absensi.checkin');
     Route::post('/absensi/checkout', [AbsensiController::class, 'checkout'])->name('absensi.checkout');
-    
+
 
     Route::get('/karyawan/riwayat', [RiwayatController::class, 'index'])->name('riwayat_kehadiran');
 
@@ -84,13 +84,13 @@ Route::middleware(['auth'])->group(function () {
     Route::post('/pengajuan', [PengajuanController::class, 'store'])->name('pengajuan.store');
     Route::get('/pengajuan/{id}', [PengajuanController::class, 'show'])->name('pengajuan.show');
     Route::delete('/pengajuan/{id}', [PengajuanController::class, 'destroy'])->name('pengajuan.destroy');
-    
+
     // Profil Karyawan
     Route::get('/karyawan/profil', [ProfilController::class, 'index'])->name('profil');
     Route::put('/profil', [ProfilController::class, 'update'])->name('profil.update');
     Route::post('/profil/upload-foto', [ProfilController::class, 'uploadFoto'])->name('profil.upload-foto');
     Route::post('/profil/ganti-password', [ProfilController::class, 'gantiPassword'])->name('profil.ganti-password');
-    
+
     // Notifikasi
     Route::get('/karyawan/notifikasi', [NotifikasiController::class, 'index'])->name('notifikasi');
     Route::get('/notifikasi/{id}', [NotifikasiController::class, 'show'])->name('notifikasi.show');
@@ -104,7 +104,7 @@ Route::get('/', function () {
 });
 
  // Tambahkan route untuk bulk actions dan lainnya
- Route::post('/bulk-action', [UserController::class, 'bulkAction'])->name('users.bulk-action');
+ Route::post('/bulk-action', [HRDController::class, 'bulkAction'])->name('users.bulk-action');
 
 // Dashboard
 Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
@@ -114,10 +114,10 @@ Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard
 Route::resource('employees', EmployeeController::class);
 
 //Data User
-Route::get('/users', [UserController::class, 'index'])->name('users.index');
+Route::get('/users', [HRDController::class, 'index'])->name('users.index');
 
 // User Management
-Route::resource('users', UserController::class);
+Route::resource('users', HRDController::class);
 
 // DATA SHIFT - Master Data Management
 Route::get('/shifts', [ShiftController::class, 'index'])->name('shifts.index');
@@ -139,37 +139,37 @@ Route::get('/hrd/dashboard', [App\Http\Controllers\Hrd\DashboardController::clas
 Route::prefix('karyawan')->name('karyawan.')->group(function () {
     // Halaman absensi
     Route::get('/absensi', [AbsensiController::class, 'index'])->name('absensi');
-    
+
     // Simpan absensi
     Route::post('/absensi/store', [AbsensiController::class, 'store'])->name('absensi.store');
-    
+
     // Laporan absensi
     Route::get('/absensi/laporan', [AbsensiController::class, 'laporan'])->name('absensi.laporan');
 });
 
 // HRD Routes Group
 Route::prefix('hrd')->name('hrd.')->middleware(['auth', 'role:hrd'])->group(function () {
-    
+
     // Dashboard HRD
     Route::get('/dashboard', [HrdDashboardController::class, 'index'])->name('dashboard');
-    
+
     // Manajemen Shift
     Route::prefix('manajemen-shift')->name('manajemen-shift.')->group(function () {
         // Route untuk halaman shift (index)
         Route::get('/shift', [HrdShiftController::class, 'shift'])->name('shift');
-        
+
         // Route untuk create shift - TAMBAHKAN INI
         Route::get('/shift/create', [HrdShiftController::class, 'create'])->name('shift.create');
         Route::post('/shift', [HrdShiftController::class, 'store'])->name('shift.store');
         Route::get('/absen', [HrdShiftController::class, 'absen'])->name('absen');
     });
-    
+
     // Manajemen Data
     Route::prefix('manajemen-data')->name('manajemen-data.')->group(function () {
         Route::get('/data-karyawan', [HrdDataController::class, 'dataKaryawan'])->name('data-karyawan');
         Route::get('/data-user', [HrdDataController::class, 'dataUser'])->name('data-user');
     });
-    
+
     // Laporan
     Route::prefix('laporan')->name('laporan.')->group(function () {
         Route::get('/ketidakhadiran', [HrdLaporanController::class, 'ketidakhadiran'])->name('ketidakhadiran');

@@ -1,8 +1,8 @@
 @extends('layout.app')
 
-@section('title', 'Manajemen User - Admin Panel')
+@section('title', 'Manajemen HRD - Admin Panel')
 
-@section('page-title', 'Data User')
+@section('page-title', 'Data HRD')
 
 @section('content')
 <div class="container-fluid">
@@ -26,7 +26,7 @@
                         <i class="bi bi-arrow-clockwise"></i>Refresh
                     </button>
                     <button class="btn btn-primary btn-add-user" data-bs-toggle="modal" data-bs-target="#userModal">
-                        <i class="bi bi-person-plus me-2"></i>Tambah User
+                        <i class="bi bi-person-plus me-2"></i>Tambah HRD
                     </button>
                 </div>
             </div>
@@ -91,7 +91,7 @@
                 <div class="card-body">
                     <div class="d-flex align-items-center">
                         <div class="flex-grow-1">
-                            <h6 class="card-title text-muted mb-2">User Baru</h6>
+                            <h6 class="card-title text-muted mb-2">HRD Baru</h6>
                             <h3 class="text-info mb-0">{{ $newThisMonth }}</h3>
                             <small class="text-muted">Bulan ini</small>
                         </div>
@@ -140,7 +140,7 @@
                                 <i class="bi bi-x"></i>
                             </button>
                         </div>
-                        
+
                         <!-- Filter Dropdown -->
                         <div class="dropdown">
                             <button class="btn btn-outline-primary dropdown-toggle" type="button" data-bs-toggle="dropdown">
@@ -148,13 +148,13 @@
                             </button>
                             <ul class="dropdown-menu dropdown-menu-end">
                                 <li><h6 class="dropdown-header">Status</h6></li>
-                                <li><a class="dropdown-item filter-option active" href="#" data-filter="all">Semua User</a></li>
+                                <li><a class="dropdown-item filter-option active" href="#" data-filter="all">Semua HRD</a></li>
                                 <li><a class="dropdown-item filter-option" href="#" data-filter="active">Aktif</a></li>
                                 <li><a class="dropdown-item filter-option" href="#" data-filter="inactive">Nonaktif</a></li>
                                 <li><hr class="dropdown-divider"></li>
                                 <li><h6 class="dropdown-header">Role</h6></li>
                                 <li><a class="dropdown-item filter-option" href="#" data-filter="admin">Admin</a></li>
-                                <li><a class="dropdown-item filter-option" href="#" data-filter="user">User Biasa</a></li>
+                                <li><a class="dropdown-item filter-option" href="#" data-filter="hrd">HRD Biasa</a></li>
                                 <li><a class="dropdown-item filter-option" href="#" data-filter="manager">Manager</a></li>
                             </ul>
                         </div>
@@ -162,7 +162,7 @@
                 </div>
             </div>
         </div>
-        
+
         <div class="card-body p-0">
             <!-- Users Table -->
             <div class="table-responsive">
@@ -184,7 +184,7 @@
                             <td>
                                 <div class="d-flex align-items-center">
                                     <div class="user-avatar me-3 position-relative">
-                                        <img src="https://ui-avatars.com/api/?name={{ urlencode($user->name) }}&background=6366f1&color=ffffff&bold=true&size=64" 
+                                        <img src="https://ui-avatars.com/api/?name={{ urlencode($user->name) }}&background=6366f1&color=ffffff&bold=true&size=64"
                                              alt="{{ $user->name }}" class="avatar-img">
                                         <div class="user-status-indicator {{ $user->is_active ? 'online' : 'offline' }}"></div>
                                     </div>
@@ -199,7 +199,7 @@
                                     </div>
                                 </div>
                             </td>
-                            
+
                             <!-- Kontak -->
                             <td>
                                 <div class="contact-info">
@@ -226,7 +226,7 @@
                                     </div>
                                 </div>
                             </td>
-                            
+
                             <!-- Role -->
                             <td>
                                 @php
@@ -244,7 +244,7 @@
                                     {{ $config['label'] }}
                                 </div>
                             </td>
-                            
+
                             <!-- Status -->
                             <td>
                                 <div class="status-badge {{ $user->is_active ? 'status-active' : 'status-inactive' }}">
@@ -252,7 +252,7 @@
                                     {{ $user->is_active ? 'Aktif' : 'Nonaktif' }}
                                 </div>
                             </td>
-                            
+
                             <!-- Tanggal Bergabung -->
                             <td>
                                 <div class="join-date">
@@ -268,24 +268,24 @@
                                     @endif
                                 </div>
                             </td>
-                            
+
                             <!-- Aksi -->
                             <td>
                                 <div class="action-buttons">
-                                    <button class="btn btn-sm btn-icon btn-outline-primary btn-edit" 
-                                            data-bs-toggle="tooltip" 
+                                    <button class="btn btn-sm btn-icon btn-outline-primary btn-edit"
+                                            data-bs-toggle="tooltip"
                                             title="Edit User"
                                             onclick="editUser({{ $user->id }})">
                                         <i class="bi bi-pencil"></i>
                                     </button>
-                                    <button class="btn btn-sm btn-icon btn-outline-info btn-view" 
-                                            data-bs-toggle="tooltip" 
+                                    <button class="btn btn-sm btn-icon btn-outline-info btn-view"
+                                            data-bs-toggle="tooltip"
                                             title="Lihat Detail"
                                             onclick="viewUser({{ $user->id }})">
                                         <i class="bi bi-eye"></i>
                                     </button>
                                     <div class="dropdown d-inline-block">
-                                        <button class="btn btn-sm btn-icon btn-outline-secondary dropdown-toggle" 
+                                        <button class="btn btn-sm btn-icon btn-outline-secondary dropdown-toggle"
                                                 data-bs-toggle="dropdown"
                                                 data-bs-toggle="tooltip"
                                                 title="Lainnya">
@@ -321,10 +321,10 @@
                                     <div class="empty-icon mb-3">
                                         <i class="bi bi-people" style="font-size: 4rem;"></i>
                                     </div>
-                                    <h5 class="empty-title">Belum ada data user</h5>
-                                    <p class="empty-description text-muted mb-4">Mulai dengan menambahkan user pertama ke sistem</p>
+                                    <h5 class="empty-title">Belum ada data HRD</h5>
+                                    <p class="empty-description text-muted mb-4">Mulai dengan menambahkan HRD pertama ke sistem</p>
                                     <button class="btn btn-primary btn-lg" data-bs-toggle="modal" data-bs-target="#userModal">
-                                        <i class="bi bi-person-plus me-2"></i>Tambah User Pertama
+                                        <i class="bi bi-person-plus me-2"></i>Tambah HRD Pertama
                                     </button>
                                 </div>
                             </td>
@@ -340,7 +340,7 @@
                 <div class="row align-items-center">
                     <div class="col-md-6">
                         <div class="text-muted">
-                            Menampilkan <strong>{{ $users->firstItem() ?? 0 }}-{{ $users->lastItem() ?? 0 }}</strong> 
+                            Menampilkan <strong>{{ $users->firstItem() ?? 0 }}-{{ $users->lastItem() ?? 0 }}</strong>
                             dari <strong>{{ $users->total() }}</strong> user
                         </div>
                     </div>
@@ -369,7 +369,7 @@
                                         $last = $users->lastPage();
                                         $start = max(1, $current - 1);
                                         $end = min($last, $current + 1);
-                                        
+
                                         if($start > 1) {
                                             $start = max(1, $current - 1);
                                             $end = min($last, $start + 2);
@@ -575,16 +575,16 @@ function initializeUserManagement() {
     const searchInput = document.getElementById('search-input');
     const clearSearch = document.getElementById('clear-search');
     const userRows = document.querySelectorAll('.user-row');
-    
+
     searchInput.addEventListener('input', debounce(function(e) {
         const searchTerm = e.target.value.toLowerCase();
-        
+
         userRows.forEach(row => {
             const text = row.textContent.toLowerCase();
             const isVisible = text.includes(searchTerm);
             row.style.display = isVisible ? '' : 'none';
         });
-        
+
         // Show/hide clear button
         clearSearch.classList.toggle('d-none', !searchTerm);
     }, 300));
@@ -600,11 +600,11 @@ function initializeUserManagement() {
         item.addEventListener('click', function(e) {
             e.preventDefault();
             const filter = this.getAttribute('data-filter');
-            
+
             // Update active state
             document.querySelectorAll('.filter-option').forEach(opt => opt.classList.remove('active'));
             this.classList.add('active');
-            
+
             userRows.forEach(row => {
                 if (filter === 'all') {
                     row.style.display = '';
@@ -660,7 +660,7 @@ function editUser(userId) {
             document.getElementById('userModalLabel').textContent = 'Edit User';
             document.getElementById('form-method').innerHTML = '<input type="hidden" name="_method" value="PUT">';
             document.getElementById('userForm').action = `/users/${userId}`;
-            
+
             // Fill form data
             document.getElementById('name').value = user.name;
             document.getElementById('username').value = user.username;
@@ -669,19 +669,19 @@ function editUser(userId) {
             document.getElementById('role').value = user.role;
             document.getElementById('is_active').checked = user.is_active;
             document.getElementById('email_verified').checked = user.email_verified_at !== null;
-            
+
             // Hide password fields for edit
             document.getElementById('password-fields').style.display = 'none';
-            
+
             // Update submit button
             document.getElementById('submit-btn').textContent = 'Update User';
-            
+
             const modal = new bootstrap.Modal(document.getElementById('userModal'));
             modal.show();
         })
         .catch(error => {
             console.error('Error:', error);
-            showAlert('Gagal memuat data user!', 'error');
+            showAlert('Gagal memuat data HRD!', 'error');
         });
 }
 
@@ -692,7 +692,7 @@ function viewUser(userId) {
 
 function handleUserSubmit(e) {
     e.preventDefault();
-    
+
     const form = e.target;
     const formData = new FormData(form);
     const url = form.action;
@@ -735,14 +735,14 @@ function resetPassword(userId) {
         e.preventDefault();
         handleResetPassword(e, userId);
     };
-    
+
     const modal = new bootstrap.Modal(document.getElementById('resetPasswordModal'));
     modal.show();
 }
 
 function handleResetPassword(e, userId) {
     e.preventDefault();
-    
+
     const form = e.target;
     const formData = new FormData(form);
 
@@ -1156,30 +1156,30 @@ document.getElementById('userModal').addEventListener('hidden.bs.modal', functio
     box-shadow: 0 2px 4px rgba(0,0,0,0.1);
 }
 
-.role-badge.bg-danger { 
-    background: linear-gradient(135deg, #fecaca, #fca5a5) !important; 
-    color: #dc2626; 
-    border: 1px solid #fca5a5; 
+.role-badge.bg-danger {
+    background: linear-gradient(135deg, #fecaca, #fca5a5) !important;
+    color: #dc2626;
+    border: 1px solid #fca5a5;
 }
-.role-badge.bg-success { 
-    background: linear-gradient(135deg, #bbf7d0, #86efac) !important; 
-    color: #15803d; 
-    border: 1px solid #86efac; 
+.role-badge.bg-success {
+    background: linear-gradient(135deg, #bbf7d0, #86efac) !important;
+    color: #15803d;
+    border: 1px solid #86efac;
 }
-.role-badge.bg-primary { 
-    background: linear-gradient(135deg, #93c5fd, #60a5fa) !important; 
-    color: #1d4ed8; 
-    border: 1px solid #60a5fa; 
+.role-badge.bg-primary {
+    background: linear-gradient(135deg, #93c5fd, #60a5fa) !important;
+    color: #1d4ed8;
+    border: 1px solid #60a5fa;
 }
-.role-badge.bg-info { 
-    background: linear-gradient(135deg, #a5f3fc, #67e8f9) !important; 
-    color: #0e7490; 
-    border: 1px solid #67e8f9; 
+.role-badge.bg-info {
+    background: linear-gradient(135deg, #a5f3fc, #67e8f9) !important;
+    color: #0e7490;
+    border: 1px solid #67e8f9;
 }
-.role-badge.bg-purple { 
-    background: linear-gradient(135deg, #d8b4fe, #c084fc) !important; 
-    color: #7e22ce; 
-    border: 1px solid #c084fc; 
+.role-badge.bg-purple {
+    background: linear-gradient(135deg, #d8b4fe, #c084fc) !important;
+    color: #7e22ce;
+    border: 1px solid #c084fc;
 }
 
 /* Status Badges */
@@ -1406,46 +1406,46 @@ document.getElementById('userModal').addEventListener('hidden.bs.modal', functio
         padding: 1.5rem 0;
         border-radius: 0 0 15px 15px;
     }
-    
+
     .search-box {
         min-width: 100%;
         margin-bottom: 1rem;
     }
-    
+
     .header-icon {
         width: 50px;
         height: 50px;
         font-size: 1.25rem;
     }
-    
+
     .action-buttons {
         flex-direction: column;
         gap: 0.25rem;
     }
-    
+
     .btn-icon {
         width: 32px;
         height: 32px;
     }
-    
+
     .avatar-img {
         width: 40px;
         height: 40px;
     }
-    
+
     .stat-card {
         margin-bottom: 1rem;
     }
-    
+
     .table-responsive {
         font-size: 0.8rem;
     }
-    
+
     .pagination {
         flex-wrap: wrap;
         justify-content: center;
     }
-    
+
     .page-link {
         margin: 1px;
         font-size: 0.8rem;

@@ -97,25 +97,13 @@
             <div class="col-md-12">
                 <div class="card">
                     <div class="card-header">
-                        <h6 class="m-0 font-weight-bold text-primary">Statistik Karyawan</h6>
+                        <h6 class="m-0 font-weight-bold text-primary text-center">Statistik Karyawan</h6>
                     </div>
                     <div class="card-body">
                         <div class="row text-center">
-                            <div class="col-md-3">
+                            <div class="col-md-12">
                                 <h4>156</h4>
                                 <p class="text-muted">Total Karyawan</p>
-                            </div>
-                            <div class="col-md-3">
-                                <h4>142</h4>
-                                <p class="text-muted">Karyawan Aktif</p>
-                            </div>
-                            <div class="col-md-3">
-                                <h4>14</h4>
-                                <p class="text-muted">Karyawan Non-Aktif</p>
-                            </div>
-                            <div class="col-md-3">
-                                <h4>5</h4>
-                                <p class="text-muted">Departemen</p>
                             </div>
                         </div>
                     </div>

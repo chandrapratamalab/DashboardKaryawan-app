@@ -387,7 +387,7 @@
                         </tbody>
                     </table>
                 </div>
-                
+
                 <!-- Pagination -->
                 <nav aria-label="Page navigation" class="mt-4">
                     <ul class="pagination justify-content-center">
@@ -403,7 +403,7 @@
 
         <!-- Summary & Insights -->
         <div class="row">
-            <div class="col-lg-6">
+            <div class="col-lg-12">
                 <div class="card shadow mb-4">
                     <div class="card-header py-3 bg-success text-white">
                         <h6 class="m-0 font-weight-bold">
@@ -413,44 +413,21 @@
                     <div class="card-body">
                         <div class="row">
                             <div class="col-6">
-                                <p class="mb-2"><strong>Periode Analisis:</strong></p>
-                                <p class="mb-2"><strong>Total Karyawan:</strong></p>
-                                <p class="mb-2"><strong>Rata-rata Kehadiran:</strong></p>
-                                <p class="mb-2"><strong>Karyawan Terlambat Terbanyak:</strong></p>
-                                <p class="mb-2"><strong>Departemen Terbaik:</strong></p>
-                                <p class="mb-0"><strong>Rekomendasi:</strong></p>
+                                <p class="mb-2"><strong>Periode Analisis</strong></p>
+                                <p class="mb-2"><strong>Total Karyawan</strong></p>
+                                <p class="mb-2"><strong>Rata-rata Kehadiran</strong></p>
+                                <p class="mb-2"><strong>Karyawan Terlambat Terbanyak</strong></p>
+                                <p class="mb-2"><strong>Departemen Terbaik</strong></p>
+                                <p class="mb-0"><strong>Rekomendasi</strong></p>
                             </div>
                             <div class="col-6">
-                                <p class="mb-2">{{ date('d M Y', strtotime(date('Y-m-01'))) }} - {{ date('d M Y', strtotime(date('Y-m-t'))) }}</p>
-                                <p class="mb-2">175 karyawan</p>
-                                <p class="mb-2">89.1%</p>
-                                <p class="mb-2">Karyawan 7 (5x terlambat)</p>
-                                <p class="mb-2">IT Department (95%)</p>
-                                <p class="mb-0 text-success">Performa baik, pertahankan!</p>
+                                <p class="mb-2">: {{ date('d M Y', strtotime(date('Y-m-01'))) }} - {{ date('d M Y', strtotime(date('Y-m-t'))) }}</p>
+                                <p class="mb-2">: 175 karyawan</p>
+                                <p class="mb-2">: 89.1%</p>
+                                <p class="mb-2">: Karyawan 7 (5x terlambat)</p>
+                                <p class="mb-2">: IT Department (95%)</p>
+                                <p class="mb-0 text-success">: Performa baik, pertahankan!</p>
                             </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-6">
-                <div class="card shadow mb-4">
-                    <div class="card-header py-3 bg-info text-white">
-                        <h6 class="m-0 font-weight-bold">
-                            <i class="fas fa-lightbulb me-2"></i>Insights & Analytics
-                        </h6>
-                    </div>
-                    <div class="card-body">
-                        <div class="alert alert-warning">
-                            <i class="fas fa-exclamation-triangle me-2"></i>
-                            <strong>Perhatian:</strong> Terdapat peningkatan keterlambatan sebesar 15% dibanding bulan sebelumnya.
-                        </div>
-                        <div class="alert alert-success">
-                            <i class="fas fa-trophy me-2"></i>
-                            <strong>Pencapaian:</strong> Departemen IT memiliki tingkat kehadiran tertinggi (95%).
-                        </div>
-                        <div class="alert alert-info">
-                            <i class="fas fa-chart-line me-2"></i>
-                            <strong>Trend:</strong> Kehadiran meningkat 3% dibanding bulan lalu.
                         </div>
                     </div>
                 </div>
@@ -467,69 +444,69 @@
         overflow-x: hidden;
         overflow-y: auto;
     }
-    
+
     /* Menghilangkan scroll horizontal di container utama */
     .container-fluid {
         overflow-x: hidden;
         max-width: 100%;
     }
-    
+
     /* Memastikan table responsive tanpa scroll vertikal yang tidak perlu */
     .table-responsive {
         overflow-x: auto;
         overflow-y: hidden;
         -webkit-overflow-scrolling: touch;
     }
-    
+
     /* Menghilangkan scroll di card body */
     .card-body {
         overflow: visible;
     }
-    
+
     .card {
         border: none;
         border-radius: 12px;
         box-shadow: 0 0.15rem 1.75rem 0 rgba(58, 59, 69, 0.15);
         transition: all 0.3s ease;
     }
-    
+
     .card:hover {
         transform: translateY(-2px);
         box-shadow: 0 0.5rem 2rem 0 rgba(58, 59, 69, 0.2);
     }
-    
+
     .card-header {
         border-bottom: 1px solid #e3e6f0;
         background-color: #f8f9fc;
         border-radius: 12px 12px 0 0 !important;
     }
-    
+
     .table th {
         background-color: #f8f9fc;
         font-weight: 700;
         color: #4e73df;
         border-bottom: 2px solid #e3e6f0;
     }
-    
+
     .table-striped tbody tr:nth-of-type(odd) {
         background-color: rgba(78, 115, 223, 0.05);
     }
-    
+
     .border-left-primary { border-left: 0.25rem solid #4e73df !important; }
     .border-left-warning { border-left: 0.25rem solid #f6c23e !important; }
     .border-left-danger { border-left: 0.25rem solid #e74a3b !important; }
     .border-left-success { border-left: 0.25rem solid #1cc88a !important; }
     .border-left-info { border-left: 0.25rem solid #36b9cc !important; }
-    
+
     .text-xs {
         font-size: 0.7rem;
     }
-    
+
     .chart-bar, .chart-pie {
         position: relative;
         height: 100%;
     }
-    
+
     .badge {
         font-size: 0.75em;
         font-weight: 600;
@@ -542,17 +519,17 @@
         .alert, .pagination, .bg-primary {
             display: none !important;
         }
-        
+
         .card {
             box-shadow: none !important;
             border: 1px solid #ddd !important;
             margin-bottom: 1rem;
         }
-        
+
         .table {
             font-size: 11px;
         }
-        
+
         #reportHeader {
             display: block !important;
         }
@@ -563,7 +540,7 @@
         from { opacity: 0; transform: translateY(10px); }
         to { opacity: 1; transform: translateY(0); }
     }
-    
+
     .card {
         animation: fadeIn 0.5s ease-out;
     }
@@ -573,17 +550,17 @@
         width: 8px;
         height: 8px;
     }
-    
+
     ::-webkit-scrollbar-track {
         background: #f1f1f1;
         border-radius: 4px;
     }
-    
+
     ::-webkit-scrollbar-thumb {
         background: #c1c1c1;
         border-radius: 4px;
     }
-    
+
     ::-webkit-scrollbar-thumb:hover {
         background: #a8a8a8;
     }
@@ -748,30 +725,30 @@
             const element = document.getElementById('exportContainer');
             const reportHeader = document.getElementById('reportHeader');
             const exportPeriod = document.getElementById('exportPeriod');
-            
+
             // Update period for export
             exportPeriod.textContent = `${document.getElementById('startDate').value} s/d ${document.getElementById('endDate').value}`;
-            
+
             // Show header for export
             reportHeader.classList.remove('d-none');
-            
+
             const opt = {
                 margin: [0.5, 0.5, 0.5, 0.5],
                 filename: `Laporan_Absensi_Lengkap_${getCurrentDate()}.pdf`,
                 image: { type: 'jpeg', quality: 0.98 },
-                html2canvas: { 
+                html2canvas: {
                     scale: 2,
                     useCORS: true,
                     logging: false
                 },
-                jsPDF: { 
-                    unit: 'cm', 
-                    format: 'a4', 
-                    orientation: 'portrait' 
+                jsPDF: {
+                    unit: 'cm',
+                    format: 'a4',
+                    orientation: 'portrait'
                 },
                 pagebreak: { mode: ['avoid-all', 'css', 'legacy'] }
             };
-            
+
             html2pdf().set(opt).from(element).save().then(() => {
                 reportHeader.classList.add('d-none');
             });
@@ -782,10 +759,10 @@
             const element = document.getElementById('attendanceReportTable');
             const reportHeader = document.getElementById('reportHeader');
             const exportPeriod = document.getElementById('exportPeriod');
-            
+
             exportPeriod.textContent = `${document.getElementById('startDate').value} s/d ${document.getElementById('endDate').value}`;
             reportHeader.classList.remove('d-none');
-            
+
             const opt = {
                 margin: [0.5, 0.5, 0.5, 0.5],
                 filename: `Laporan_Absensi_Tabel_${getCurrentDate()}.pdf`,
@@ -793,7 +770,7 @@
                 html2canvas: { scale: 2 },
                 jsPDF: { unit: 'cm', format: 'a4', orientation: 'landscape' }
             };
-            
+
             html2pdf().set(opt).from(element).save().then(() => {
                 reportHeader.classList.add('d-none');
             });
@@ -841,11 +818,11 @@
             // Buat workbook
             const wb = XLSX.utils.book_new();
             const ws = XLSX.utils.aoa_to_sheet(data);
-            
+
             // Styling kolom
             ws['!cols'] = [
-                { wch: 5 }, { wch: 20 }, { wch: 15 }, { wch: 12 }, 
-                { wch: 10 }, { wch: 10 }, { wch: 10 }, { wch: 10 }, 
+                { wch: 5 }, { wch: 20 }, { wch: 15 }, { wch: 12 },
+                { wch: 10 }, { wch: 10 }, { wch: 10 }, { wch: 10 },
                 { wch: 12 }, { wch: 10 }
             ];
 
@@ -860,7 +837,7 @@
                 sheet: "Data Absensi",
                 raw: true
             });
-            
+
             XLSX.writeFile(wb, `Laporan_Absensi_Tabel_${getCurrentDate()}.xlsx`);
         });
 
@@ -882,7 +859,7 @@
             e.preventDefault();
             const printWindow = window.open('', '_blank');
             const tableContent = document.getElementById('attendanceReportTable').outerHTML;
-            
+
             printWindow.document.write(`
                 <html>
                     <head>
@@ -892,8 +869,8 @@
                             table { width: 100%; border-collapse: collapse; }
                             th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }
                             th { background-color: #f8f9fa; }
-                            @media print { 
-                                body { margin: 0; } 
+                            @media print {
+                                body { margin: 0; }
                                 table { font-size: 12px; }
                             }
                         </style>
@@ -928,9 +905,9 @@
             const status = document.getElementById('status').value;
             const location = document.getElementById('location').value;
             const shift = document.getElementById('shift').value;
-            
+
             showLoading();
-            
+
             // Simulate API call
             setTimeout(() => {
                 updateStatistics();
@@ -948,7 +925,7 @@
             document.getElementById('location').value = '';
             document.getElementById('shift').value = '';
             document.getElementById('sortBy').value = 'tanggal_desc';
-            
+
             alert('Filter telah direset ke default');
         });
 
@@ -973,7 +950,7 @@
             const totalTerlambat = Math.floor(Math.random() * 10) + 20;
             const totalAbsen = Math.floor(Math.random() * 8) + 10;
             const persentase = ((totalHadir / 175) * 100).toFixed(1);
-            
+
             document.getElementById('totalHadir').textContent = totalHadir;
             document.getElementById('totalTerlambat').textContent = totalTerlambat;
             document.getElementById('totalAbsen').textContent = totalAbsen;

@@ -445,7 +445,7 @@
 
     <!-- Summary Section -->
     <div class="row">
-        <div class="col-lg-6">
+        <div class="col-lg-12">
             <div class="card shadow mb-4">
                 <div class="card-header py-3">
                     <h6 class="m-0 font-weight-bold text-primary">Ringkasan Laporan Shift</h6>
@@ -453,52 +453,22 @@
                 <div class="card-body">
                     <div class="row">
                         <div class="col-6">
-                            <p class="mb-1"><strong>Periode:</strong></p>
-                            <p class="mb-1"><strong>Total Shift:</strong></p>
-                            <p class="mb-1"><strong>Shift Terbanyak:</strong></p>
-                            <p class="mb-1"><strong>Departemen Terbanyak:</strong></p>
+                            <p class="mb-1"><strong>Periode</strong></p>
+                            <p class="mb-1"><strong>Total Shift</strong></p>
+                            <p class="mb-1"><strong>Shift Terbanyak</strong></p>
+                            <p class="mb-1"><strong>Departemen Terbanyak</strong></p>
                         </div>
                         <div class="col-6">
-                            <p class="mb-1">{{ date('d M Y') }} - {{ date('d M Y', strtotime('+7 days')) }}</p>
-                            <p class="mb-1">85 shift</p>
-                            <p class="mb-1">Shift Pagi (45)</p>
-                            <p class="mb-1">Operations (25)</p>
+                            <p class="mb-1">: {{ date('d M Y') }} - {{ date('d M Y', strtotime('+7 days')) }}</p>
+                            <p class="mb-1">: 85 shift</p>
+                            <p class="mb-1">: Shift Pagi (45)</p>
+                            <p class="mb-1">: Operations (25)</p>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="col-lg-6">
-            <div class="card shadow mb-4">
-                <div class="card-header py-3">
-                    <h6 class="m-0 font-weight-bold text-primary">Quick Actions</h6>
-                </div>
-                <div class="card-body">
-                    <div class="row g-2">
-                        <div class="col-6">
-                            <button class="btn btn-outline-primary w-100 mb-2">
-                                <i class="fas fa-plus me-2"></i>Tambah Shift
-                            </button>
-                        </div>
-                        <div class="col-6">
-                            <button class="btn btn-outline-success w-100 mb-2" id="quickExport">
-                                <i class="fas fa-file-export me-2"></i>Quick Export
-                            </button>
-                        </div>
-                        <div class="col-6">
-                            <button class="btn btn-outline-info w-100 mb-2">
-                                <i class="fas fa-sync me-2"></i>Refresh Data
-                            </button>
-                        </div>
-                        <div class="col-6">
-                            <button class="btn btn-outline-warning w-100 mb-2">
-                                <i class="fas fa-bell me-2"></i>Notifikasi
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+
     </div>
 </div>
 @endsection
@@ -510,25 +480,25 @@
         overflow-x: hidden;
         overflow-y: auto;
     }
-    
+
     /* Menghilangkan scroll horizontal di container utama */
     .container-fluid {
         overflow-x: hidden;
         max-width: 100%;
     }
-    
+
     /* Memastikan table responsive tanpa scroll vertikal yang tidak perlu */
     .table-responsive {
         overflow-x: auto;
         overflow-y: hidden;
         -webkit-overflow-scrolling: touch;
     }
-    
+
     /* Menghilangkan scroll di card body */
     .card-body {
         overflow: visible;
     }
-    
+
     .card {
         border: none;
         border-radius: 10px;
@@ -569,23 +539,23 @@
     .badge {
         font-size: 0.75em;
     }
-    
+
     /* Menghilangkan scrollbar yang tidak perlu */
     ::-webkit-scrollbar {
         width: 8px;
         height: 8px;
     }
-    
+
     ::-webkit-scrollbar-track {
         background: #f1f1f1;
         border-radius: 4px;
     }
-    
+
     ::-webkit-scrollbar-thumb {
         background: #c1c1c1;
         border-radius: 4px;
     }
-    
+
     ::-webkit-scrollbar-thumb:hover {
         background: #a8a8a8;
     }
@@ -736,7 +706,7 @@
                 html2canvas: { scale: 2 },
                 jsPDF: { unit: 'cm', format: 'a4', orientation: 'landscape' }
             };
-            
+
             html2pdf().set(opt).from(element).save();
         });
 
@@ -771,7 +741,7 @@
             const endDate = document.getElementById('endDate').value;
             const shiftType = document.getElementById('shiftType').value;
             const department = document.getElementById('department').value;
-            
+
             // Simulate filtering
             alert(`Filter shift diterapkan:\nPeriode: ${startDate} - ${endDate}\nTipe Shift: ${shiftType || 'Semua'}\nDepartemen: ${department || 'Semua'}`);
         });
